@@ -4,7 +4,7 @@ This repository contains **HashiCorp Packer** templates to deploy **Linux** dist
 
 # Content: #
 
-* CentOS7/centos7-base-vsphere.json --> CentOS7 Packer Base JSON file
+* CentOS7/centos7-vsphere.json --> CentOS7 Packer JSON file
 * CentOS7/ks.cfg --> CentOS7 Kickstart file
 
 Tested with **VMware ESX 6.7** | User: root | Password: server
