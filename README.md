@@ -4,9 +4,15 @@ Deploy a **Linux** template using Hashicorp Packer in VMware vSphere ESXi
 
 This repository contains a Packer template for **Linux** distros
 
+# Content: #
+
+* CentOS7/centos7-vsphere.json --> CentOS7 Packet JSON file
+* CentOS7/ks.cfg --> CentOS7 Kickstart file
+
 Tested with **VMware ESX 6.7**
 
-centos7-vsphere.json --> CentOS7 with vSphere-ISO
+User: root
+Password: server
 
 # Requeriments: #
 
