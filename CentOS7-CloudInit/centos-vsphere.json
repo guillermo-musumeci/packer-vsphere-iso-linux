@@ -1,0 +1,71 @@
+{
+  "variables": {
+    "vsphere-server": "kopi-vsphere-01",
+    "vsphere-user": "administrator@kopicloud.local",
+    "vsphere-password": "Ins3cur3P@ssw0rd",
+    
+    "vsphere-datacenter": "KopiCloud",
+    "vsphere-cluster": "Kopi-Cluster",
+    "vsphere-network": "VM Network",
+    "vsphere-datastore": "Kopi-Datastore",
+    
+    "vm-name": "CentOS7-Template",
+    "vm-cpu-num": "1",
+    "vm-mem-size": "1024",
+    "vm-disk-size": "25600",
+    "iso_url": "[Kopi-Datastore] ISO-Linux/CentOS-7-x86_64-DVD-1810.iso"
+  },
+
+  "builders": [
+    {
+      "type": "vsphere-iso",
+  
+      "vcenter_server": "{{user `vsphere-server`}}",
+      "username": "{{user `vsphere-user`}}",
+      "password": "{{user `vsphere-password`}}",
+      "insecure_connection": "true",
+
+      "datacenter": "{{user `vsphere-datacenter`}}",
+      "cluster": "{{user `vsphere-cluster`}}",
+      "network": "{{user `vsphere-network`}}",
+      "datastore": "{{user `vsphere-datastore`}}",
+
+      "vm_name": "{{user `vm_name`}}",
+      "notes": "Build via Packer",
+      
+      "boot_wait": "10s",
+      "boot_order": "disk,cdrom,floppy",
+
+      "guest_os_type": "centos7_64Guest",
+
+      "ssh_username": "root",
+      "ssh_password": "server",
+
+      "CPUs": 1,
+      "RAM": 1024,
+      "RAM_reserve_all": false,
+      "disk_controller_type": "pvscsi",
+      "disk_size": 25000,
+      "disk_thin_provisioned": true,
+      "network_card": "vmxnet3",
+
+      "convert_to_template": true,
+
+      "iso_paths": ["{{user `iso_url`}}"],
+      "floppy_files": ["ks.cfg"],
+      "boot_command": [
+        "<esc><wait>",
+        "linux ks=hd:fd0:/ks.cfg<enter>"
+      ]
+    }
+  ],
+  
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo yum install -y cloud-init"
+      ]
+    }
+  ]
+}
