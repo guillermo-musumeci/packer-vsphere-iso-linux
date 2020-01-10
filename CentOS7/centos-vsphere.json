@@ -41,11 +41,11 @@
       "ssh_username": "root",
       "ssh_password": "server",
 
-      "CPUs": 1,
-      "RAM": 1024,
+      "CPUs": "{{user `vm-cpu-num`}}",
+      "RAM": "{{user `vm-mem-size`}}",
       "RAM_reserve_all": false,
       "disk_controller_type": "pvscsi",
-      "disk_size": 25000,
+      "disk_size": "{{user `vm-disk-size`}}",
       "disk_thin_provisioned": true,
       "network_card": "vmxnet3",
 
