@@ -13,6 +13,7 @@
     "vm-cpu-num": "1",
     "vm-mem-size": "1024",
     "vm-disk-size": "25600",
+    
     "iso_url": "[Kopi-Datastore] ISO-Linux/CentOS-7-x86_64-DVD-1810.iso"
   },
 
@@ -32,11 +33,10 @@
 
       "vm_name": "{{user `vm_name`}}",
       "notes": "Build via Packer",
+      "guest_os_type": "centos7_64Guest",
       
       "boot_wait": "10s",
       "boot_order": "disk,cdrom,floppy",
-
-      "guest_os_type": "centos7_64Guest",
 
       "ssh_username": "root",
       "ssh_password": "server",
