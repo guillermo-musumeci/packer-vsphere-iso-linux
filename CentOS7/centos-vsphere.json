@@ -31,7 +31,7 @@
       "network": "{{user `vsphere-network`}}",
       "datastore": "{{user `vsphere-datastore`}}",
 
-      "vm_name": "{{user `vm_name`}}",
+      "vm_name": "{{user `vm-name`}}",
       "notes": "Build via Packer",
       "guest_os_type": "centos7_64Guest",
       
