@@ -30,7 +30,7 @@
       "network": "{{user `vsphere-network`}}",
       "datastore": "{{user `vsphere-datastore`}}",
 
-      "vm_name": "{{user `vm_name`}}",
+      "vm_name": "{{user `vm-name`}}",
       "notes": "Build via Packer",
       
       "boot_wait": "10s",
