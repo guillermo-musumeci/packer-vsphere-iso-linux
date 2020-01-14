@@ -22,4 +22,4 @@ Tested with **VMware ESX 6.7** | User: root | Password: server
 
 * Packer --> https://www.packer.io
 
-* CentOS 7.x ISO --> https://wiki.centos.org/Download
+* CentOS 7.x ISO --> https://wiki.centos.org/Download - use DVD ISO file
