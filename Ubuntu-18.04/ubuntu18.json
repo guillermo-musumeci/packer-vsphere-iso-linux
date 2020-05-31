@@ -1,0 +1,70 @@
+{
+  "builders": [
+    {
+      "type": "vsphere-iso",
+  
+      "vcenter_server": "{{user `vcenter-server`}}",
+      "username": "{{user `vcenter-username`}}",
+      "password": "{{user `vcenter-password`}}",
+      "insecure_connection": "true",
+      "datacenter": "{{user `datacenter`}}",
+  
+      "vm_name": "{{user `vm-name`}}",
+    
+      "datastore": "{{user `datastore`}}",
+      "folder": "{{user `folder`}}",
+      "host": "{{user `host`}}",
+      "cluster": "{{user `cluster`}}",
+
+      "convert_to_template": "true",
+    
+      "network": "{{user `network`}}",
+      "network_card": "vmxnet3",
+    
+      "boot_order": "disk,cdrom",
+  
+      "guest_os_type": "ubuntu64Guest",
+  
+      "ssh_username": "{{user `ssh-username`}}",
+      "ssh_password": "{{user `ssh-password`}}",
+  
+      "CPUs": "{{user `vm-cpu-num`}}",
+      "RAM": "{{user `vm-mem-size`}}",
+      "RAM_reserve_all": true,
+  
+      "disk_controller_type": "pvscsi",
+      "disk_size": "{{user `vm-disk-size`}}",
+      "disk_thin_provisioned": true,
+  
+      "iso_urls": "{{user `iso-url`}}",
+      "iso_checksum": "{{user `iso-checksum`}}",
+      "iso_checksum_type": "{{user `iso-checksum-type`}}",
+
+      "floppy_files": ["./preseed.cfg"],
+      "boot_command": [
+        "<enter><wait><f6><wait><esc><wait>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs>",
+        "/install/vmlinuz",
+        " initrd=/install/initrd.gz",
+        " priority=critical",
+        " locale=en_US",
+        " file=/media/preseed_server.cfg",
+        "<enter>"
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": ["echo 'Packer Template Build -- Complete'"]
+    }
+  ]
+}
