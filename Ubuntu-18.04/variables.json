@@ -1,5 +1,5 @@
 {
-  "vm_name": "Ubuntu-1804-Template",
+  "vm-name": "Ubuntu-1804-Template",
     
   "vcenter-server":"kopi-vsphere-01",
   "vcenter-username":"administrator@kopicloud.local",
@@ -15,10 +15,10 @@
   "vm-mem-size": "1024",
   "vm-disk-size": "10240",
     
-  "ssh_username": "kopicloud",
-  "ssh_password": "kopicloud",
+  "ssh-username": "kopicloud",
+  "ssh-password": "kopicloud",
   
-  "iso_url": "http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.4-server-amd64.iso",
-  "iso_checksum": "e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
-  "iso_checksum_type": "sha256"
+  "iso-url": "http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.4-server-amd64.iso",
+  "iso-checksum": "e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
+  "iso-checksum_type": "sha256"
 }
