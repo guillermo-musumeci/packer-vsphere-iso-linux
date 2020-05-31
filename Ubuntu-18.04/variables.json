@@ -6,7 +6,7 @@
   "vcenter-password":"Ins3cur3P@ssw0rd",
   
   "datacenter": "KopiCloud",
-  "datastore":"Kopi-Datastore-01",
+  "datastore": "Kopi-Datastore-01",
   "folder": "Templates",
   "cluster": "Kopi-Cluster",
   "network": "VM Network",
@@ -20,5 +20,5 @@
   
   "iso-url": "http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.4-server-amd64.iso",
   "iso-checksum": "e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
-  "iso-checksum_type": "sha256"
+  "iso-checksum-type": "sha256"
 }
