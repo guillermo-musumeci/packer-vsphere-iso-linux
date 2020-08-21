@@ -1,0 +1,71 @@
+{
+    "builders": [
+      {
+        "type": "vsphere-iso",
+    
+        "vcenter_server": "{{user `vcenter-server`}}",
+        "username": "{{user `vcenter-username`}}",
+        "password": "{{user `vcenter-password`}}",
+        "insecure_connection": "true",
+        "datacenter": "{{user `datacenter`}}",
+    
+        "vm_name": "{{user `vm-name`}}",
+      
+        "datastore": "{{user `datastore`}}",
+        "folder": "{{user `folder`}}",
+        "host": "{{user `host`}}",
+        "cluster": "{{user `cluster`}}",
+  
+        "convert_to_template": "true",
+      
+        "network": "{{user `network`}}",
+        "network_card": "vmxnet3",
+      
+        "boot_order": "disk,cdrom",
+    
+        "guest_os_type": "debian10_64Guest",
+    
+        "ssh_username": "{{user `ssh-username`}}",
+        "ssh_password": "{{user `ssh-password`}}",
+    
+        "CPUs": "{{user `vm-cpu-num`}}",
+        "RAM": "{{user `vm-mem-size`}}",
+        "RAM_reserve_all": true,
+    
+        "disk_controller_type": "pvscsi",
+        "disk_size": "{{user `vm-disk-size`}}",
+        "disk_thin_provisioned": true,
+    
+        "iso_urls": "{{user `iso-url`}}",
+        "iso_checksum": "{{user `iso-checksum`}}",
+        "iso_checksum_type": "{{user `iso-checksum-type`}}",
+  
+        "shutdown_command": "echo 'kopicloud' | sudo -S shutdown -P now",
+        "http_directory": "http",
+        "boot_command": [
+          "<esc><wait>",
+          "install <wait>",
+          " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
+          "debian-installer=en_US.UTF-8 <wait>",
+          "auto <wait>",
+          "locale=en_US.UTF-8 <wait>",
+          "kbd-chooser/method=us <wait>",
+          "keyboard-configuration/xkb-keymap=us <wait>",
+          "netcfg/get_hostname={{ .Name }} <wait>",
+          "netcfg/get_domain=vagrantup.com <wait>",
+          "fb=false <wait>",
+          "debconf/frontend=noninteractive <wait>",
+          "console-setup/ask_detect=false <wait>",
+          "console-keymaps-at/keymap=us <wait>",
+          "grub-installer/bootdev=/dev/sda <wait>",
+          "<enter><wait>"
+        ]
+      }
+    ],
+    "provisioners": [
+      {
+        "type": "shell",
+        "inline": ["echo 'Packer Template Build -- Complete'"]
+      }
+    ]
+  }
