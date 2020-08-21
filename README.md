@@ -18,13 +18,6 @@ Tested with **VMware ESX 6.7** | User: root | Password: server
 
 Tested with **VMware ESX 6.7** | User: root | Password: server
 
-**CentOS7 Base with Cloud-Init**
-
-* CentOS7-CloudInit/centos7-vsphere.json --> CentOS7 Packer JSON file
-* CentOS7-CloudInit/ks.cfg --> CentOS7 Kickstart file
-
-Tested with **VMware ESX 6.7** | User: root | Password: server
-
 **Ubuntu 18.04**
 
 * Ubuntu-18.04/ubuntu18.json --> Ubuntu 18.04 Packer Template JSON file
@@ -33,6 +26,13 @@ Tested with **VMware ESX 6.7** | User: root | Password: server
 
 Tested with **VMware ESX 6.7** | User: kopicloud | Password: kopicloud
 
+**Debian 10**
+
+* Debian-10/debian10.json --> Debian 10 Packer Template JSON file
+* Debian-10/variables.json --> Debian 10 Packer Variables JSON file
+* Debian-10/http/preseed.cfg --> Debian 10 Preseeding file
+
+Tested with **VMware ESX 6.7** | User: kopicloud | Password: kopicloud
 
 # Requeriments: #
 
