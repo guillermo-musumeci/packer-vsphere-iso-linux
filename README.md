@@ -1,5 +1,7 @@
 # Packer templates for Linux using vSphere-ISO provider
 
+## NOTE: This code was developed for Packer v1.5.x version. It will not work on Packer v1.6.x versions!
+
 This repository contains **HashiCorp Packer** templates to deploy **Linux** distros in **VMware vSphere**. 
 
 # Content: #
